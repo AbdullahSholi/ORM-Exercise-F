@@ -80,5 +80,13 @@ public class Program
             Console.WriteLine(element.FirstName + " " + element.LastName + " " + element.EmployeeId + " " +
                               element.Position + " " + element.PhoneNumber + " " + element.RestaurantId + " " +
                               element.Name);
+        
+        Console.WriteLine();
+        int restaurantId = 1;
+        var revenue = await context.TotalRevenueResults
+            .FromSqlInterpolated($"SELECT dbo.TotalRevenueGeneratedBySpecificRestaurant({restaurantId}) AS TotalRevenue")
+            .AsNoTracking()
+            .FirstOrDefaultAsync();
+        Console.WriteLine(revenue.TotalRevenue);
     }
 }
