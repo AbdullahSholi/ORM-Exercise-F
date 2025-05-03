@@ -2,8 +2,6 @@
 using RestaurantReservation.Db;
 using RestaurantReservation.Db.models;
 
-namespace RestaurantReservation;
-
 public class EmployeeRepository : Repository<Employee>, IEmployeeRepository
 {
     private readonly RestaurantReservationDbContext _context;

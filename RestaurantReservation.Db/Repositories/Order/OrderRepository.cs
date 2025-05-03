@@ -1,9 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using RestaurantReservation.Db;
+using RestaurantReservation.Db.models;
 
-namespace RestaurantReservation.Order;
-
-public class OrderRepository : Repository<Db.models.Order>, IOrderRepository
+public class OrderRepository : Repository<Order>, IOrderRepository
 {
     private readonly RestaurantReservationDbContext _context;
 
@@ -12,7 +11,7 @@ public class OrderRepository : Repository<Db.models.Order>, IOrderRepository
         _context = context;
     }
 
-    public async Task<List<Db.models.Order>> ListOrdersAndMenuItemsAsync(int reservationId)
+    public async Task<List<Order>> ListOrdersAndMenuItemsAsync(int reservationId)
     {
         var result = await _context.Orders
             .Where(o => o.ReservationId == reservationId)

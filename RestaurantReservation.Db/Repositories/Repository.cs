@@ -1,8 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using RestaurantReservation.Db;
 
-namespace RestaurantReservation;
-
 public class Repository<T> : IRepository<T> where T : class
 {
     private readonly RestaurantReservationDbContext _context;

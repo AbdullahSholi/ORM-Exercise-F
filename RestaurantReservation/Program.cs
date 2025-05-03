@@ -1,11 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using RestaurantReservation;
 using RestaurantReservation.Db;
 using RestaurantReservation.Db.models;
-using RestaurantReservation.MenuItem;
-using RestaurantReservation.Order;
-using RestaurantReservation.Reservation;
 
 public class Program
 {
@@ -23,7 +19,7 @@ public class Program
         await context.Database.MigrateAsync();
         await context.SeedDataAsync();
 
-        IRepository<Customer> customerRepository = new Repository<Customer>(context);
+        ICustomerRepository customerRepository = new CustomerRepository(context);
         await customerRepository.AddAsync(new Customer
         {
             FirstName = "Abdullah", LastName = "Sholi", Email = "abdullah.ghassan.sholi@gmail.com",
@@ -88,5 +84,12 @@ public class Program
             .AsNoTracking()
             .FirstOrDefaultAsync();
         Console.WriteLine(revenue.TotalRevenue);
+
+        Console.WriteLine();
+        var customersByPartySize = await customerRepository.GetCustomersWithLargePartySizeAsync(4);
+        foreach (var element in customersByPartySize)
+        {
+            Console.WriteLine(element.CustomerId+" "+element.FirstName+" "+element.LastName+" "+element.Email+" "+element.PhoneNumber);
+        }
     }
 }

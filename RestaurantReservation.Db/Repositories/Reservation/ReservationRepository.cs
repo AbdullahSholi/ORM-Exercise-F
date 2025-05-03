@@ -1,9 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using RestaurantReservation.Db;
+using RestaurantReservation.Db.models;
 
-namespace RestaurantReservation.Reservation;
-
-public class ReservationRepository : Repository<Db.models.Reservation>, IReservationRepository
+public class ReservationRepository : Repository<Reservation>, IReservationRepository
 {
     private readonly RestaurantReservationDbContext _context;
 
@@ -12,7 +11,7 @@ public class ReservationRepository : Repository<Db.models.Reservation>, IReserva
         _context = context;
     }
 
-    public async Task<List<Db.models.Reservation>> GetReservationsByCustomerAsync(int customerId)
+    public async Task<List<Reservation>> GetReservationsByCustomerAsync(int customerId)
     {
         return await _context.Reservations.Where(r => r.CustomerId == customerId).AsNoTracking().ToListAsync();
     }
