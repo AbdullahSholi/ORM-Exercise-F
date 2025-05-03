@@ -19,7 +19,7 @@ public class Program
         await context.Database.MigrateAsync();
         await context.SeedDataAsync();
 
-        ICustomerRepository customerRepository = new CustomerRepository(context);
+        var customerRepository = new CustomerRepository(context);
         await customerRepository.AddAsync(new Customer
         {
             FirstName = "Abdullah", LastName = "Sholi", Email = "abdullah.ghassan.sholi@gmail.com",
@@ -33,17 +33,17 @@ public class Program
             Console.WriteLine(c.FirstName + " " + c.LastName + " " + c.Email + " " + c.PhoneNumber);
 
         Console.WriteLine();
-        IEmployeeRepository employeeRepository = new EmployeeRepository(context);
+        var employeeRepository = new EmployeeRepository(context);
         var managers = await employeeRepository.ListManagersAsync();
         foreach (var manager in managers) Console.WriteLine(manager.FirstName + " " + manager.LastName);
 
         Console.WriteLine();
-        IReservationRepository reservationRepository = new ReservationRepository(context);
+        var reservationRepository = new ReservationRepository(context);
         var reservationsByCustomer = await reservationRepository.GetReservationsByCustomerAsync(4);
         foreach (var reservation in reservationsByCustomer) Console.WriteLine(reservation.ReservationId);
 
         Console.WriteLine();
-        IOrderRepository orderRepository = new OrderRepository(context);
+        var orderRepository = new OrderRepository(context);
         var listOrdersAndMenuItems = await orderRepository.ListOrdersAndMenuItemsAsync(3);
         foreach (var element in listOrdersAndMenuItems)
         {
@@ -53,7 +53,7 @@ public class Program
         }
 
         Console.WriteLine();
-        IMenuItemRepository menuItemRepository = new MenuItemRepository(context);
+        var menuItemRepository = new MenuItemRepository(context);
         var listOrderedMenuItems = await menuItemRepository.ListOrderedMenuItemsAsync(3);
         foreach (var element in listOrderedMenuItems) Console.WriteLine(element.MenuItemId + " " + element.Name);
 
@@ -76,11 +76,12 @@ public class Program
             Console.WriteLine(element.FirstName + " " + element.LastName + " " + element.EmployeeId + " " +
                               element.Position + " " + element.PhoneNumber + " " + element.RestaurantId + " " +
                               element.Name);
-        
+
         Console.WriteLine();
-        int restaurantId = 1;
+        var restaurantId = 1;
         var revenue = await context.TotalRevenueResults
-            .FromSqlInterpolated($"SELECT dbo.TotalRevenueGeneratedBySpecificRestaurant({restaurantId}) AS TotalRevenue")
+            .FromSqlInterpolated(
+                $"SELECT dbo.TotalRevenueGeneratedBySpecificRestaurant({restaurantId}) AS TotalRevenue")
             .AsNoTracking()
             .FirstOrDefaultAsync();
         Console.WriteLine(revenue.TotalRevenue);
@@ -88,8 +89,7 @@ public class Program
         Console.WriteLine();
         var customersByPartySize = await customerRepository.GetCustomersWithLargePartySizeAsync(4);
         foreach (var element in customersByPartySize)
-        {
-            Console.WriteLine(element.CustomerId+" "+element.FirstName+" "+element.LastName+" "+element.Email+" "+element.PhoneNumber);
-        }
+            Console.WriteLine(element.CustomerId + " " + element.FirstName + " " + element.LastName + " " +
+                              element.Email + " " + element.PhoneNumber);
     }
 }

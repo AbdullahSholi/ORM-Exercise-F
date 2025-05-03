@@ -42,7 +42,7 @@ public class RestaurantReservationDbContext : DbContext
         modelBuilder.Entity<EmployeesWithAssociatedInformation>()
             .HasNoKey()
             .ToView("vw_EmployeesWithAssociatedRestaurantInformation");
-        
+
         modelBuilder.Entity<TotalRevenueResult>().HasNoKey().ToView(null);
 
         modelBuilder.Entity<Order>()
