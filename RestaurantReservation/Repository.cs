@@ -2,16 +2,18 @@
 using RestaurantReservation.Db;
 
 namespace RestaurantReservation;
+
 public class Repository<T> : IRepository<T> where T : class
 {
     private readonly RestaurantReservationDbContext _context;
     private readonly DbSet<T> _dbSet;
+
     public Repository(RestaurantReservationDbContext context)
     {
         _context = context;
         _dbSet = context.Set<T>();
     }
-    
+
     public async Task<IEnumerable<T>> GetAllAsync()
     {
         return await _dbSet.AsNoTracking().ToListAsync();

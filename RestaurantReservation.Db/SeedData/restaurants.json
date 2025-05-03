@@ -1,7 +1,32 @@
 [
-  { "Name": "The Gourmet House", "Address": "123 Food St.", "PhoneNumber": "123-456-7890", "OpeningHours": "9 AM - 11 PM" },
-  { "Name": "Ocean's Delight", "Address": "456 Sea Rd.", "PhoneNumber": "321-654-0987", "OpeningHours": "11 AM - 10 PM" },
-  { "Name": "Pasta Palace", "Address": "789 Italy Ave.", "PhoneNumber": "213-546-8790", "OpeningHours": "12 PM - 12 AM" },
-  { "Name": "Grill & Chill", "Address": "321 BBQ Blvd.", "PhoneNumber": "777-888-9999", "OpeningHours": "1 PM - 1 AM" },
-  { "Name": "Veggie Heaven", "Address": "111 Greenway", "PhoneNumber": "000-123-4567", "OpeningHours": "10 AM - 8 PM" }
+  {
+    "Name": "The Gourmet House",
+    "Address": "123 Food St.",
+    "PhoneNumber": "123-456-7890",
+    "OpeningHours": "9 AM - 11 PM"
+  },
+  {
+    "Name": "Ocean's Delight",
+    "Address": "456 Sea Rd.",
+    "PhoneNumber": "321-654-0987",
+    "OpeningHours": "11 AM - 10 PM"
+  },
+  {
+    "Name": "Pasta Palace",
+    "Address": "789 Italy Ave.",
+    "PhoneNumber": "213-546-8790",
+    "OpeningHours": "12 PM - 12 AM"
+  },
+  {
+    "Name": "Grill & Chill",
+    "Address": "321 BBQ Blvd.",
+    "PhoneNumber": "777-888-9999",
+    "OpeningHours": "1 PM - 1 AM"
+  },
+  {
+    "Name": "Veggie Heaven",
+    "Address": "111 Greenway",
+    "PhoneNumber": "000-123-4567",
+    "OpeningHours": "10 AM - 8 PM"
+  }
 ]
