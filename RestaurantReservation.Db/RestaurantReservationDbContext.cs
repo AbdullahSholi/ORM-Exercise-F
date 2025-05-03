@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using RestaurantReservation.Db.models;
+using RestaurantReservation.Db.SqlFunctionsModels;
 using RestaurantReservation.Db.ViewModels;
 
 namespace RestaurantReservation.Db;
@@ -21,6 +22,8 @@ public class RestaurantReservationDbContext : DbContext
     public DbSet<OrderItem> OrderItems { get; set; }
     public DbSet<ReservationsWithAssociatedInformation> ReservationsWithAssociatedInformation { get; set; }
     public DbSet<EmployeesWithAssociatedInformation> EmployeesWithAssociatedInformation { get; set; }
+    public DbSet<TotalRevenueResult> TotalRevenueResults { get; set; }
+
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
@@ -39,6 +42,8 @@ public class RestaurantReservationDbContext : DbContext
         modelBuilder.Entity<EmployeesWithAssociatedInformation>()
             .HasNoKey()
             .ToView("vw_EmployeesWithAssociatedRestaurantInformation");
+        
+        modelBuilder.Entity<TotalRevenueResult>().HasNoKey().ToView(null);
 
         modelBuilder.Entity<Order>()
             .HasOne(o => o.Reservation)
