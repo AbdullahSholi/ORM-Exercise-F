@@ -1,0 +1,7 @@
+[
+  { "RestaurantId": 1, "ReservationId": 1, "Capacity": 4 },
+  { "RestaurantId": 2, "ReservationId": 2, "Capacity": 4 },
+  { "RestaurantId": 3, "ReservationId": 3, "Capacity": 6 },
+  { "RestaurantId": 4, "ReservationId": 4, "Capacity": 8 },
+  { "RestaurantId": 5, "ReservationId": 5, "Capacity": 2 }
+]

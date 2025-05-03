@@ -1,0 +1,7 @@
+[
+  { "RestaurantId": 1, "Name": "Margherita Pizza", "Description": "Classic Italian pizza", "Price": 12.99 },
+  { "RestaurantId": 1, "Name": "Spaghetti Bolognese", "Description": "Rich meat sauce", "Price": 14.50 },
+  { "RestaurantId": 2, "Name": "Grilled Salmon", "Description": "Fresh with herbs", "Price": 18.25 },
+  { "RestaurantId": 3, "Name": "Fettuccine Alfredo", "Description": "Creamy sauce pasta", "Price": 13.75 },
+  { "RestaurantId": 4, "Name": "BBQ Ribs", "Description": "Smoky and tender", "Price": 19.99 }
+]

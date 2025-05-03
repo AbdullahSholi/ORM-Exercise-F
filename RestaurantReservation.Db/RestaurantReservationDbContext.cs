@@ -13,6 +13,11 @@ public class RestaurantReservationDbContext : DbContext
     public DbSet<Reservation> Reservations { get; set; }
     public DbSet<Restaurant> Restaurants { get; set; }
     public DbSet<Table> Tables { get; set; }
+    public DbSet<OrderItem> OrderItems { get; set; }
+    
+    public RestaurantReservationDbContext(DbContextOptions<RestaurantReservationDbContext> options) : base(options)
+    {
+    }
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder.UseSqlServer("Server=192.168.1.104,1433;Database=RestaurantReservationCore;User=testuser;Password=Sholi@971;TrustServerCertificate=True;");
@@ -51,4 +56,16 @@ public class RestaurantReservationDbContext : DbContext
             .HasForeignKey(r => r.RestaurantId)
             .OnDelete(DeleteBehavior.Restrict);
     }
+    public async Task SeedDataAsync()
+    {
+        await RestaurantReservationDbSeeder.SeedAsync(this, "restaurants", Restaurants);
+        await RestaurantReservationDbSeeder.SeedAsync(this, "customers", Customers);
+        await RestaurantReservationDbSeeder.SeedAsync(this, "employees", Employees);
+        await RestaurantReservationDbSeeder.SeedAsync(this, "menuitems", MenuItems);
+        await RestaurantReservationDbSeeder.SeedAsync(this, "reservations", Reservations);
+        await RestaurantReservationDbSeeder.SeedAsync(this, "tables", Tables);
+        await RestaurantReservationDbSeeder.SeedAsync(this, "orders", Orders);
+        await RestaurantReservationDbSeeder.SeedAsync(this, "order-menuitems", OrderItems);
+    }
+
 }
