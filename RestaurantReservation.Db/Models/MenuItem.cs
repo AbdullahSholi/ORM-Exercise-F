@@ -9,5 +9,5 @@ public class MenuItem
     public decimal Price { get; set; }
     
     public Restaurant Restaurant { get; set; }
-    public List<Order> Orders { get; set; } = new();
+    public ICollection<OrderItem> OrderItems { get; set; }
 }

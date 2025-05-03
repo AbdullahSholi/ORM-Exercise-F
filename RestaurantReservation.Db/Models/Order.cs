@@ -10,5 +10,5 @@ public class Order
     
     public Reservation Reservation { get; set; }
     public Employee Employee { get; set; }
-    public List<MenuItem> MenuItems { get; set; } = new();
+    public ICollection<OrderItem> OrderItems { get; set; }
 }

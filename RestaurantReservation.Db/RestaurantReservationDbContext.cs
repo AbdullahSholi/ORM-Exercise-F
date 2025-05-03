@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Design;
 using RestaurantReservation.Db.models;
 
 namespace RestaurantReservation.Db;
@@ -15,6 +16,16 @@ public class RestaurantReservationDbContext : DbContext
     public DbSet<Table> Tables { get; set; }
     public DbSet<OrderItem> OrderItems { get; set; }
     
+    public class RestaurantReservationDbContextFactory : IDesignTimeDbContextFactory<RestaurantReservationDbContext>
+    {
+        public RestaurantReservationDbContext CreateDbContext(string[] args)
+        {
+            var optionsBuilder = new DbContextOptionsBuilder<RestaurantReservationDbContext>();
+            optionsBuilder.UseSqlServer("Server=localhost;Database=RestaurantReservationDb;Trusted_Connection=True;");
+
+            return new RestaurantReservationDbContext(optionsBuilder.Options);
+        }
+    }
     public RestaurantReservationDbContext(DbContextOptions<RestaurantReservationDbContext> options) : base(options)
     {
     }

@@ -1,6 +1,12 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
+using RestaurantReservation;
 using RestaurantReservation.Db;
+using RestaurantReservation.Db.models;
+using RestaurantReservation.MenuItem;
+using RestaurantReservation.Order;
+using RestaurantReservation.Reservation;
+
 public class Program
 {
     public static async Task Main(string[] args)
@@ -9,14 +15,57 @@ public class Program
             .AddDbContext<RestaurantReservationDbContext>(options =>
                 options.UseSqlServer("Server=192.168.1.104,1433;Database=RestaurantReservationCore;User=testuser;Password=Sholi@971;TrustServerCertificate=True;"))
             .BuildServiceProvider();
-        
-        using (var scope = serviceProvider.CreateScope())
-        {
-            var context = scope.ServiceProvider.GetRequiredService<RestaurantReservationDbContext>();
-            
-            await context.Database.MigrateAsync();
 
-            await context.SeedDataAsync();
+        using var scope = serviceProvider.CreateScope();
+        
+        var context = scope.ServiceProvider.GetRequiredService<RestaurantReservationDbContext>();
+        await context.Database.MigrateAsync();
+        await context.SeedDataAsync();
+        
+        IRepository<Customer> customerRepository = new Repository<Customer>(context);
+        await customerRepository.AddAsync(new Customer { FirstName = "Abdullah", LastName = "Sholi", Email = "abdullah.ghassan.sholi@gmail.com", PhoneNumber = "999-3333"});
+        var customer = customerRepository.GetByIdAsync(3).Result.FirstName;
+        Console.WriteLine(customer);
+        await customerRepository.DeleteAsync(11);
+        var customers = customerRepository.GetAllAsync().Result;
+        foreach (var c in customers)
+        {
+            Console.WriteLine(c.FirstName+" "+c.LastName+ " "+c.Email+" "+c.PhoneNumber);
         }
+        
+        IEmployeeRepository employeeRepository = new EmployeeRepository(context);
+        var managers = await employeeRepository.ListManagersAsync();
+        foreach (var manager in managers)
+        {
+            Console.WriteLine(manager.FirstName + " " + manager.LastName);
+        }
+        
+        IReservationRepository reservationRepository = new ReservationRepository(context);
+        var reservationsByCustomer = await reservationRepository.GetReservationsByCustomerAsync(4);
+        foreach (var reservation in reservationsByCustomer)
+        {
+            Console.WriteLine(reservation.ReservationId);
+        }
+        
+        IOrderRepository orderRepository =  new OrderRepository(context);
+        var listOrdersAndMenuItems = await orderRepository.ListOrdersAndMenuItemsAsync(3);
+        foreach (var element in listOrdersAndMenuItems)
+        {
+            Console.WriteLine("Order Id: "+element.OrderId+" ");
+            foreach (var orderItem in element.OrderItems)
+            {
+                Console.WriteLine("     Menu Items: "+orderItem.MenuItem.Name);
+            }
+        }
+        
+        IMenuItemRepository menuItemRepository =  new MenuItemRepository(context);
+        var listOrderedMenuItems = await menuItemRepository.ListOrderedMenuItemsAsync(3);
+        foreach (var element in listOrderedMenuItems)
+        {
+            Console.WriteLine(element.MenuItemId+" "+element.Name);
+        }
+
+        var averageOrderAmount = orderRepository.CalculateAverageOrderAmountAsync(5);
+        Console.WriteLine("Average Order Amount: "+averageOrderAmount.Result);
     }
 }
