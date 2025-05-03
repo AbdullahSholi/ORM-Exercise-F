@@ -1,7 +1,32 @@
 [
-  { "RestaurantId": 1, "FirstName": "Eve", "LastName": "Lopez", "Position": "Waiter" },
-  { "RestaurantId": 1, "FirstName": "Sam", "LastName": "Nguyen", "Position": "Chef" },
-  { "RestaurantId": 2, "FirstName": "Liam", "LastName": "Green", "Position": "Waiter" },
-  { "RestaurantId": 3, "FirstName": "Mia", "LastName": "Davis", "Position": "Manager" },
-  { "RestaurantId": 4, "FirstName": "Noah", "LastName": "Wilson", "Position": "Chef" }
+  {
+    "RestaurantId": 1,
+    "FirstName": "Eve",
+    "LastName": "Lopez",
+    "Position": "Waiter"
+  },
+  {
+    "RestaurantId": 1,
+    "FirstName": "Sam",
+    "LastName": "Nguyen",
+    "Position": "Chef"
+  },
+  {
+    "RestaurantId": 2,
+    "FirstName": "Liam",
+    "LastName": "Green",
+    "Position": "Waiter"
+  },
+  {
+    "RestaurantId": 3,
+    "FirstName": "Mia",
+    "LastName": "Davis",
+    "Position": "Manager"
+  },
+  {
+    "RestaurantId": 4,
+    "FirstName": "Noah",
+    "LastName": "Wilson",
+    "Position": "Chef"
+  }
 ]

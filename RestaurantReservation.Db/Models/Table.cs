@@ -6,7 +6,7 @@ public class Table
     public int RestaurantId { get; set; }
     public int ReservationId { get; set; }
     public int Capacity { get; set; }
-    
+
     public Reservation Reservation { get; set; }
     public Restaurant Restaurant { get; set; }
 }

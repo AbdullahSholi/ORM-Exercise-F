@@ -1,8 +1,6 @@
 ﻿namespace RestaurantReservation.MenuItem;
 
-using RestaurantReservation;
-using Db.models;
-public interface IMenuItemRepository : IRepository<MenuItem>
+public interface IMenuItemRepository : IRepository<Db.models.MenuItem>
 {
-    Task<List<MenuItem>> ListOrderedMenuItemsAsync(int reservationId);
+    Task<List<Db.models.MenuItem>> ListOrderedMenuItemsAsync(int reservationId);
 }

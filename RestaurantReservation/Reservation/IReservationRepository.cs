@@ -1,9 +1,6 @@
 ﻿namespace RestaurantReservation.Reservation;
 
-using RestaurantReservation;
-using Db.models;
-
-public interface IReservationRepository : IRepository<Reservation>
+public interface IReservationRepository : IRepository<Db.models.Reservation>
 {
-    Task<List<Reservation>> GetReservationsByCustomerAsync(int customerId);
+    Task<List<Db.models.Reservation>> GetReservationsByCustomerAsync(int customerId);
 }

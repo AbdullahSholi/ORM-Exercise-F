@@ -1,9 +1,7 @@
 ﻿namespace RestaurantReservation.Order;
 
-using RestaurantReservation;
-using Db.models;
-public interface IOrderRepository : IRepository<Order> 
+public interface IOrderRepository : IRepository<Db.models.Order>
 {
-    Task<List<Order>> ListOrdersAndMenuItemsAsync(int reservationId);
+    Task<List<Db.models.Order>> ListOrdersAndMenuItemsAsync(int reservationId);
     Task<decimal> CalculateAverageOrderAmountAsync(int employeeId);
 }
