@@ -109,7 +109,7 @@ public static class FakeDataGenerator
         return fakeMenuItem;
     }
 
-    public static Order GenerateFakeOrder(int restaurantId = 1)
+    public static Order GenerateFakeOrder(long restaurantId = 1)
     {
         var faker = new Faker();
 
