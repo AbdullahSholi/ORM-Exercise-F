@@ -10,10 +10,17 @@ public class Program
 {
     public static async Task Main(string[] args)
     {
+        var connectionString = Environment.GetEnvironmentVariable("RESTAURANT_DB_CONNECTION");
+
+        if (string.IsNullOrWhiteSpace(connectionString))
+        {
+            Console.WriteLine("ERROR: Environment variable 'RESTAURANT_DB_CONNECTION' is not set.");
+            return;
+        }
+        
         var serviceProvider = new ServiceCollection()
             .AddDbContext<RestaurantReservationDbContext>(options =>
-                options.UseSqlServer(
-                    "Server=192.168.1.104,1433;Database=RestaurantReservationCore;User=testuser;Password=Sholi@971;TrustServerCertificate=True;"))
+                options.UseSqlServer(connectionString))
             .AddDbContext<RestaurantReservationDbContext>()
             .AddScoped<IValidator<Customer>, CustomerValidator>()
             .AddScoped<IValidator<Employee>, EmployeeValidator>()
