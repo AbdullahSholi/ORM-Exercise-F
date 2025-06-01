@@ -15,9 +15,6 @@ public class EmployeeValidator : AbstractValidator<Employee>
             .NotEmpty()
             .Must(x => !string.IsNullOrWhiteSpace(x))
             .WithMessage("Last name is required.");
-        RuleFor(x => x.Position)
-            .NotEmpty()
-            .WithMessage("Position is required.");
         RuleFor(x => x.Orders)
             .NotNull()
             .Must(r => r != null && r.Count > 0)

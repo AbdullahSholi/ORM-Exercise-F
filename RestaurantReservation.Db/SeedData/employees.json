@@ -3,30 +3,30 @@
     "RestaurantId": 1,
     "FirstName": "Eve",
     "LastName": "Lopez",
-    "Position": "Waiter"
+    "Position": 0
   },
   {
     "RestaurantId": 1,
     "FirstName": "Sam",
     "LastName": "Nguyen",
-    "Position": "Chef"
+    "Position": 1
   },
   {
     "RestaurantId": 2,
     "FirstName": "Liam",
     "LastName": "Green",
-    "Position": "Waiter"
+    "Position": 2
   },
   {
     "RestaurantId": 3,
     "FirstName": "Mia",
     "LastName": "Davis",
-    "Position": "Manager"
+    "Position": 1
   },
   {
     "RestaurantId": 4,
     "FirstName": "Noah",
     "LastName": "Wilson",
-    "Position": "Chef"
+    "Position": 0
   }
 ]

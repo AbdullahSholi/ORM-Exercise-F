@@ -2,7 +2,7 @@
 
 public enum EmployeePosition
 {
-    Manager,
-    Waiter,
-    Chef
+    Manager = 0,
+    Waiter = 1,
+    Chef = 2
 }
