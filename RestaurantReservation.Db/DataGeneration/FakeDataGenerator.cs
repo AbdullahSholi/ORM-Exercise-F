@@ -67,7 +67,7 @@ public static class FakeDataGenerator
             .RuleFor(e => e.EmployeeId, f => f.IndexFaker + 1)
             .RuleFor(e => e.FirstName, f => f.Name.FirstName())
             .RuleFor(e => e.LastName, f => f.Name.LastName())
-            .RuleFor(e => e.Position, f => f.Name.JobTitle())
+            .RuleFor(e => e.Position, EmployeePosition.Manager)
             .RuleFor(e => e.Restaurant, () => restaurantFaker.Generate())
             .RuleFor(e => e.RestaurantId, (f, e) => e.Restaurant.RestaurantId)
             .RuleFor(e => e.Orders, f => orderFaker.Generate(1));
@@ -118,7 +118,7 @@ public static class FakeDataGenerator
             EmployeeId = faker.Random.Int(1, 1000),
             FirstName = faker.Name.FirstName(),
             LastName = faker.Name.LastName(),
-            Position = faker.Name.JobTitle(),
+            Position = EmployeePosition.Manager,
             RestaurantId = restaurantId
         };
 
@@ -265,7 +265,7 @@ public static class FakeDataGenerator
             .RuleFor(e => e.EmployeeId, f => f.Random.Int(1000, 9999))
             .RuleFor(e => e.FirstName, f => f.Name.FirstName())
             .RuleFor(e => e.LastName, f => f.Name.LastName())
-            .RuleFor(e => e.Position, f => f.PickRandom(new[] { "Waiter", "Chef", "Manager" }))
+            .RuleFor(e => e.Position, EmployeePosition.Manager)
             .RuleFor(e => e.RestaurantId, f => restId)
             .RuleFor(e => e.Restaurant, f => restaurant)
             .Generate(faker.Random.Int(3, 6));

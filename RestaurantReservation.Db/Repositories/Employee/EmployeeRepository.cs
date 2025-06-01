@@ -13,6 +13,6 @@ public class EmployeeRepository : Repository<Employee>, IEmployeeRepository
 
     public async Task<List<Employee>> ListManagersAsync()
     {
-        return await _context.Employees.Where(e => e.Position == "Manager").AsNoTracking().ToListAsync();
+        return await _context.Employees.Where(e => e.Position == EmployeePosition.Manager).AsNoTracking().ToListAsync();
     }
 }
