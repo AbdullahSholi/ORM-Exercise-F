@@ -8,6 +8,6 @@ public class Employee
     public string LastName { get; set; }
     public EmployeePosition Position { get; set; }
 
-    public List<Order> Orders { get; set; } = new();
+    public List<Order>? Orders { get; set; } = new();
     public Restaurant Restaurant { get; set; }
 }
