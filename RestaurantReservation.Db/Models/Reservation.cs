@@ -2,9 +2,9 @@
 
 public class Reservation
 {
-    public int ReservationId { get; set; }
-    public int CustomerId { get; set; }
-    public int RestaurantId { get; set; }
+    public long ReservationId { get; set; }
+    public long CustomerId { get; set; }
+    public long RestaurantId { get; set; }
     public DateTime ReservationDate { get; set; }
     public int PartySize { get; set; }
 
