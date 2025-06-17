@@ -40,7 +40,7 @@ public class Program
         var orderRepository = scope.ServiceProvider.GetService<IOrderRepository>();
         var reservationRepository = scope.ServiceProvider.GetService<IReservationRepository>();
         var tableRepository = scope.ServiceProvider.GetService<ITableRepository>();
-        
+
         var context = scope.ServiceProvider.GetRequiredService<RestaurantReservationDbContext>();
         await context.Database.MigrateAsync();
         await context.SeedDataAsync();
@@ -123,7 +123,7 @@ public class Program
         var reservationValidator = scope.ServiceProvider.GetService<IValidator<Reservation>>();
         var restaurantValidator = scope.ServiceProvider.GetService<IValidator<Restaurant>>();
         var tableValidator = scope.ServiceProvider.GetService<IValidator<Table>>();
-        
+
         var newCustomer = FakeDataGenerator.GenerateFakeCustomer();
         var newEmployee = FakeDataGenerator.GenerateFakeEmployee();
         var newMenuItem = FakeDataGenerator.GenerateFakeMenuItem();
@@ -131,7 +131,7 @@ public class Program
         var newReservation = FakeDataGenerator.GenerateFakeReservation();
         var newRestaurant = FakeDataGenerator.GenerateFakeRestaurant();
         var newTable = FakeDataGenerator.GenerateFakeTable();
-        
+
         var customerValidationResult = await customerValidator.ValidateAsync(newCustomer);
         if (!customerValidationResult.IsValid)
         {
@@ -163,7 +163,7 @@ public class Program
                 Console.WriteLine($"Validation Error: {error.ErrorMessage}");
             return;
         }
-        
+
         var reservationValidationResult = await reservationValidator.ValidateAsync(newReservation);
         if (!reservationValidationResult.IsValid)
         {
@@ -171,7 +171,7 @@ public class Program
                 Console.WriteLine($"Validation Error: {error.ErrorMessage}");
             return;
         }
-        
+
         var restaurantValidationResult = await restaurantValidator.ValidateAsync(newRestaurant);
         if (!restaurantValidationResult.IsValid)
         {
@@ -179,7 +179,7 @@ public class Program
                 Console.WriteLine($"Validation Error: {error.ErrorMessage}");
             return;
         }
-        
+
         var tableValidationResult = await tableValidator.ValidateAsync(newTable);
         if (!tableValidationResult.IsValid)
         {

@@ -17,6 +17,5 @@ public class TableValidator : AbstractValidator<Table>
         RuleFor(x => x.Restaurant)
             .NotNull()
             .WithMessage("Table must included to a specific restaurant");
-        
     }
 }

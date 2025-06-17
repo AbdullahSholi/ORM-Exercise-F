@@ -174,10 +174,11 @@ public static class FakeDataGenerator
 
         return order;
     }
+
     public static Reservation GenerateFakeReservation(int restaurantId = 1, bool includeOrders = true)
     {
         var faker = new Faker();
-        
+
         var customer = new Customer
         {
             CustomerId = faker.Random.Int(1, 10000),
@@ -186,7 +187,7 @@ public static class FakeDataGenerator
             Email = faker.Internet.Email(),
             PhoneNumber = faker.Phone.PhoneNumber()
         };
-        
+
         var restaurant = new Restaurant
         {
             RestaurantId = restaurantId,
@@ -195,10 +196,10 @@ public static class FakeDataGenerator
             PhoneNumber = faker.Phone.PhoneNumber(),
             OpeningHours = "10:00 AM - 10:00 PM"
         };
-        
+
         var tables = new List<Table>();
-        int tableCount = faker.Random.Int(1, 3);
-        for (int i = 0; i < tableCount; i++)
+        var tableCount = faker.Random.Int(1, 3);
+        for (var i = 0; i < tableCount; i++)
         {
             var table = new Table
             {
@@ -208,7 +209,7 @@ public static class FakeDataGenerator
             };
             tables.Add(table);
         }
-        
+
         var reservation = new Reservation
         {
             ReservationId = faker.Random.Int(1, 10000),
@@ -220,14 +221,14 @@ public static class FakeDataGenerator
             PartySize = tables.Sum(t => t.Capacity),
             Tables = tables
         };
-        
+
         foreach (var table in tables)
         {
             table.ReservationId = reservation.ReservationId;
             table.Reservation = reservation;
             table.Restaurant = restaurant;
         }
-        
+
         if (includeOrders)
         {
             var order = GenerateFakeOrder(reservation.ReservationId);
@@ -236,10 +237,11 @@ public static class FakeDataGenerator
 
         return reservation;
     }
+
     public static Restaurant GenerateFakeRestaurant(int? restaurantId = null)
     {
         var faker = new Faker();
-        int restId = restaurantId ?? faker.Random.Int(1000, 9999);
+        var restId = restaurantId ?? faker.Random.Int(1000, 9999);
 
         var restaurant = new Restaurant
         {
@@ -284,7 +286,7 @@ public static class FakeDataGenerator
         restaurant.MenuItems = menuItems;
 
         var reservations = new List<Reservation>();
-        for (int i = 0; i < faker.Random.Int(2, 5); i++)
+        for (var i = 0; i < faker.Random.Int(2, 5); i++)
         {
             var customer = new Customer
             {
@@ -314,7 +316,7 @@ public static class FakeDataGenerator
             }
 
             var orders = new List<Order>();
-            for (int j = 0; j < faker.Random.Int(1, 2); j++)
+            for (var j = 0; j < faker.Random.Int(1, 2); j++)
             {
                 var employee = faker.PickRandom(employees);
 
@@ -352,6 +354,7 @@ public static class FakeDataGenerator
 
         return restaurant;
     }
+
     public static Table GenerateFakeTable()
     {
         var faker = new Faker();
