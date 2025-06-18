@@ -1,0 +1,996 @@
+{
+	"info": {
+		"_postman_id": "6f0036a8-059e-4ec5-8fe9-9e55cc280f5f",
+		"name": "ASP.NET Project API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32720335"
+	},
+	"item": [
+		{
+			"name": "Customers",
+			"item": [
+				{
+					"name": "customers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/customer",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"customer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "customer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"firstName\": \"Alice\",\r\n  \"lastName\": \"Johnson\",\r\n  \"email\": \"alice.johnson@example.com\",\r\n  \"phoneNumber\": \"1234567890\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/customer",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"customer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "customer",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"firstName\": \"Ali\",\r\n  \"lastName\": \"Johnson\",\r\n  \"email\": \"alice.johnson@example.com\",\r\n  \"phoneNumber\": \"1234567890\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/customer/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"customer",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "customer",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"customerId\": 1,\r\n    \"restaurantId\": 1,\r\n    \"reservationDate\": \"2025-07-01T18:00:00\",\r\n    \"partySize\": 2,\r\n    \"tables\": [],\r\n    \"orders\": []\r\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/customer/2",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"customer",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "customer",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/customer/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"customer",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Employees",
+			"item": [
+				{
+					"name": "employees",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/employee",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"employee"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "employee",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"restaurantId\": 1,\r\n  \"firstName\": \"Sarah\",\r\n  \"lastName\": \"Williams\",\r\n  \"position\": \"Chef\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/employee",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"employee"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "employee",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"restaurantId\": 1,\r\n  \"firstName\": \"Sarah Ahmad\",\r\n  \"lastName\": \"Williams\",\r\n  \"position\": \"Chef\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/employee/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"employee",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "employee",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"customerId\": 1,\r\n    \"restaurantId\": 1,\r\n    \"reservationDate\": \"2025-07-01T18:00:00\",\r\n    \"partySize\": 2,\r\n    \"tables\": [],\r\n    \"orders\": []\r\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/employee/2",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"employee",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "employee",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/employee/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"employee",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "managers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/employee/managers",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"employee",
+								"managers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "average order amount for employee",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/employee/3/average-order-amount",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"employee",
+								"3",
+								"average-order-amount"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "MenuItems",
+			"item": [
+				{
+					"name": "menuItems",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/menuitem",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"menuitem"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "menuItem",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"restaurantId\": 1,\r\n  \"name\": \"Margherita Pizza\",\r\n  \"description\": \"Classic pizza with fresh tomatoes, mozzarella, and basil.\",\r\n  \"price\": 8.99\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/menuItem",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"menuItem"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "menuItem",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"restaurantId\": 1,\r\n  \"name\": \"Margherita Pizza  Large\",\r\n  \"description\": \"Classic pizza with fresh tomatoes, mozzarella, and basil.\",\r\n  \"price\": 8.99\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/menuItem/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"menuItem",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "menuItem",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"customerId\": 1,\r\n    \"restaurantId\": 1,\r\n    \"reservationDate\": \"2025-07-01T18:00:00\",\r\n    \"partySize\": 2,\r\n    \"tables\": [],\r\n    \"orders\": []\r\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/menuItem/2",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"menuItem",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "menuItem",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/menuItem/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"menuItem",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Orders",
+			"item": [
+				{
+					"name": "orders",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/order",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"order"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "order",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"reservationId\": 2,\r\n  \"employeeId\": 3,\r\n  \"orderDate\": \"2025-06-17T18:45:00\",\r\n  \"totalAmount\": 150\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/order",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"order"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "order",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"reservationId\": 2,\r\n  \"employeeId\": 3,\r\n  \"orderDate\": \"2025-06-17T18:45:00\",\r\n  \"totalAmount\": 190\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/order/2",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"order",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "order",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"customerId\": 1,\r\n    \"restaurantId\": 1,\r\n    \"reservationDate\": \"2025-07-01T18:00:00\",\r\n    \"partySize\": 2,\r\n    \"tables\": [],\r\n    \"orders\": []\r\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/order/2",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"order",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "order",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/order/2",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"order",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reservations",
+			"item": [
+				{
+					"name": "reservation",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}}/reservations",
+							"host": [
+								"{{baseUrl}}}"
+							],
+							"path": [
+								"reservations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "reservation",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"customerId\": 1,\r\n    \"restaurantId\": 1,\r\n    \"reservationDate\": \"2025-07-01T18:00:00\",\r\n    \"partySize\": 2,\r\n    \"tables\": [],\r\n    \"orders\": []\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}}/reservation",
+							"host": [
+								"{{baseUrl}}}"
+							],
+							"path": [
+								"reservation"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "reservation",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"customerId\": 4,\r\n    \"restaurantId\": 4,\r\n    \"reservationDate\": \"2025-07-01T18:00:00\",\r\n    \"partySize\": 2,\r\n    \"tables\": [],\r\n    \"orders\": []\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}}/reservation/1",
+							"host": [
+								"{{baseUrl}}}"
+							],
+							"path": [
+								"reservation",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "reservation",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"customerId\": 1,\r\n    \"restaurantId\": 1,\r\n    \"reservationDate\": \"2025-07-01T18:00:00\",\r\n    \"partySize\": 2,\r\n    \"tables\": [],\r\n    \"orders\": []\r\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}}/reservation/2",
+							"host": [
+								"{{baseUrl}}}"
+							],
+							"path": [
+								"reservation",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "reservation",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}}/reservation/1",
+							"host": [
+								"{{baseUrl}}}"
+							],
+							"path": [
+								"reservation",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "reservations by customer id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/reservation/customer/2",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"reservation",
+								"customer",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "order and menu items for a reservation",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/reservation/3/orders",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"reservation",
+								"3",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ordered items for a reservation",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/reservation/3/menu-items",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"reservation",
+								"3",
+								"menu-items"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Restaurants",
+			"item": [
+				{
+					"name": "restaurants",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/restaurant",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"restaurant"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "restaurant",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"La Piazza\",\r\n  \"address\": \"123 Main Street, Cityville\",\r\n  \"phoneNumber\": \"+1234567890\",\r\n  \"openingHours\": \"10:00 AM - 10:00 PM\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/restaurant",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"restaurant"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "restaurant",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"La Piazza Large\",\r\n  \"address\": \"123 Main Street, Cityville\",\r\n  \"phoneNumber\": \"+1234567890\",\r\n  \"openingHours\": \"10:00 AM - 10:00 PM\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/restaurant/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"restaurant",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "restaurant",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"customerId\": 1,\r\n    \"restaurantId\": 1,\r\n    \"reservationDate\": \"2025-07-01T18:00:00\",\r\n    \"partySize\": 2,\r\n    \"tables\": [],\r\n    \"orders\": []\r\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/restaurant/2",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"restaurant",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "restaurant",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/restaurant/5",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"restaurant",
+								"5"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tables",
+			"item": [
+				{
+					"name": "tables",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/table",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"table"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "table",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"restaurantId\": 1,\r\n  \"reservationId\": 2,\r\n  \"capacity\": 4\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/table",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"table"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "table",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"restaurantId\": 1,\r\n  \"reservationId\": 2,\r\n  \"capacity\": 14\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/table/2",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"table",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "table",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"customerId\": 1,\r\n    \"restaurantId\": 1,\r\n    \"reservationDate\": \"2025-07-01T18:00:00\",\r\n    \"partySize\": 2,\r\n    \"tables\": [],\r\n    \"orders\": []\r\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/table/2",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"table",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "table",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/table/2",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"table",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"admin\",\r\n  \"password\": \"password\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/auth/login",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbiIsImp0aSI6ImNiZjJmM2I0LWE2NmQtNDU0MC1hYzczLTU2MWE0ODMwNjc1YiIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWUiOiJhZG1pbiIsImV4cCI6MTc1MDIxNjM0OSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo1MjI0IiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdDo1MjI0In0.0z94SBJacwVZfV5GbG04D_cMgy4IBw-IbTy62Weu3PU",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "Authorization",
+			"value": "",
+			"type": "default"
+		}
+	]
+}
