@@ -19,9 +19,9 @@ builder.Services.AddSwaggerGen(options =>
     {
         Version = "v1",
         Title = "Restaurant Reservation API",
-        Description = "API for managing restaurant reservations.",
+        Description = "API for managing restaurant reservations."
     });
-    
+
     options.AddSecurityDefinition("Bearer", new Microsoft.OpenApi.Models.OpenApiSecurityScheme
     {
         In = Microsoft.OpenApi.Models.ParameterLocation.Header,
@@ -31,7 +31,7 @@ builder.Services.AddSwaggerGen(options =>
         BearerFormat = "JWT",
         Scheme = "bearer"
     });
-    
+
     options.AddSecurityRequirement(new Microsoft.OpenApi.Models.OpenApiSecurityRequirement
     {
         {
