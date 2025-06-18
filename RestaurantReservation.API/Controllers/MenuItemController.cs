@@ -89,7 +89,7 @@ public class MenuItemController : ControllerBase
             menuItemToUpdate.Name = menuItem.Name;
             menuItemToUpdate.Description = menuItem.Description;
             menuItemToUpdate.Price = menuItem.Price;
-            
+
             await _context.SaveChangesAsync();
             return NoContent();
         }

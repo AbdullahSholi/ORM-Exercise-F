@@ -91,12 +91,12 @@ public class RestaurantController : ControllerBase
             var restaurantToUpdate = await _context.Restaurants.FindAsync(id);
             if (restaurantToUpdate == null)
                 return NotFound();
-            
+
             restaurantToUpdate.Name = restaurant.Name;
             restaurantToUpdate.Address = restaurant.Address;
             restaurantToUpdate.PhoneNumber = restaurant.PhoneNumber;
             restaurantToUpdate.OpeningHours = restaurant.OpeningHours;
-            
+
             await _context.SaveChangesAsync();
             return NoContent();
         }

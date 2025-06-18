@@ -85,12 +85,12 @@ public class EmployeeController : ControllerBase
             var employeeToUpdate = await _context.Employees.FindAsync(id);
             if (employeeToUpdate == null)
                 return NotFound();
-            
+
             employeeToUpdate.FirstName = employee.FirstName;
             employeeToUpdate.LastName = employee.LastName;
             employeeToUpdate.Position = employee.Position;
             employeeToUpdate.RestaurantId = employee.RestaurantId;
-            
+
             await _context.SaveChangesAsync();
             return NoContent();
         }
@@ -119,6 +119,41 @@ public class EmployeeController : ControllerBase
             await _context.SaveChangesAsync();
 
             return NoContent();
+        }
+        catch (Exception e)
+        {
+            _logger.LogError(e, e.Message);
+            return StatusCode(500, "Internal server error");
+        }
+    }
+
+    [HttpGet("managers")]
+    public async Task<IActionResult> GetManagers()
+    {
+        try
+        {
+            var managers = await _context.Employees
+                .Include(r => r.Orders)
+                .Where(r => r.Position == EmployeePosition.Manager)
+                .ToListAsync();
+            return Ok(managers);
+        }
+        catch (Exception e)
+        {
+            _logger.LogError(e, e.Message);
+            return StatusCode(500, "Internal server error");
+        }
+    }
+
+    [HttpGet("{employeeId:int}/average-order-amount")]
+    public async Task<IActionResult> GetAverageOrderAmountForEmployee(int employeeId)
+    {
+        try
+        {
+            var averageOrderAmount = await _context.Orders
+                .Where(o => o.EmployeeId == employeeId)
+                .AverageAsync(o => o.TotalAmount);
+            return Ok(averageOrderAmount);
         }
         catch (Exception e)
         {

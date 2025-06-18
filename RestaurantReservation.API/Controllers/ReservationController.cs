@@ -20,6 +20,59 @@ public class ReservationController : ControllerBase
         _context = context;
     }
 
+    [HttpGet("customer/{customerId:int}")]
+    public async Task<IActionResult> GetCustomerReservations(int customerId)
+    {
+        try
+        {
+            var reservations = await _context.Reservations
+                .Include(r => r.Orders)
+                .Include(r => r.Tables)
+                .Where(r => r.CustomerId == customerId)
+                .AsNoTracking()
+                .ToListAsync();
+            return Ok(reservations);
+        }
+        catch (Exception e)
+        {
+            _logger.LogError(e, e.Message);
+            return StatusCode(500, "Internal server error");
+        }
+    }
+
+    [HttpGet("{reservationId:int}/orders")]
+    public async Task<IActionResult> GetOrderAndMenuItemsForAReservation(int reservationId)
+    {
+        try
+        {
+            var ordersAndMenuItems = await _context.Orders
+                .Where(o => o.ReservationId == reservationId)
+                .Include(o => o.Reservation)
+                .Include(o => o.OrderItems)
+                .ThenInclude(oi => oi.MenuItem)
+                .AsNoTracking()
+                .ToListAsync();
+            return Ok(ordersAndMenuItems);
+        }
+        catch (Exception e)
+        {
+            _logger.LogError(e, e.Message);
+            return StatusCode(500, "Internal server error");
+        }
+    }
+
+    [HttpGet("{reservationId:int}/menu-items")]
+    public async Task<IActionResult> GetOrderedMenuItemsForAReservation(int reservationId)
+    {
+        var orderedItems = await _context.OrderItems
+            .Where(oi => oi.Order.ReservationId == reservationId)
+            .Include(oi => oi.MenuItem)
+            .Select(oi => oi.MenuItem)
+            .AsNoTracking()
+            .ToListAsync();
+        return Ok(orderedItems);
+    }
+
     [HttpGet]
     public async Task<IActionResult> GetReservations()
     {

@@ -85,13 +85,13 @@ public class CustomerController : ControllerBase
             var customerToUpdate = await _context.Customers.FindAsync(id);
             if (customerToUpdate == null)
                 return NotFound();
-            
+
             customerToUpdate.FirstName = customer.FirstName;
             customerToUpdate.LastName = customer.LastName;
             customerToUpdate.Email = customer.Email;
             customerToUpdate.PhoneNumber = customer.PhoneNumber;
             customerToUpdate.Reservations = customer.Reservations;
-            
+
             await _context.SaveChangesAsync();
             return NoContent();
         }

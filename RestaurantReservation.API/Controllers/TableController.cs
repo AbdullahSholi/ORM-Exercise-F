@@ -83,10 +83,10 @@ public class TableController : ControllerBase
             var tableToUpdate = await _context.Tables.FindAsync(id);
             if (tableToUpdate == null)
                 return NotFound();
-            
+
             tableToUpdate.RestaurantId = table.RestaurantId;
             tableToUpdate.Capacity = table.Capacity;
-            
+
             await _context.SaveChangesAsync();
             return NoContent();
         }

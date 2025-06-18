@@ -85,12 +85,12 @@ public class OrderController : ControllerBase
             var orderToUpdate = await _context.Orders.FindAsync(id);
             if (orderToUpdate == null)
                 return NotFound();
-            
+
             orderToUpdate.ReservationId = order.ReservationId;
             orderToUpdate.OrderDate = order.OrderDate;
             orderToUpdate.ReservationId = order.ReservationId;
             orderToUpdate.TotalAmount = order.TotalAmount;
-            
+
             await _context.SaveChangesAsync();
             return NoContent();
         }
