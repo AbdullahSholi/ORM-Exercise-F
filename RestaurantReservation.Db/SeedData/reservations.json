@@ -1,0 +1,32 @@
+[
+  {
+    "CustomerId": 1,
+    "RestaurantId": 1,
+    "ReservationDate": "2025-05-01T18:00:00",
+    "PartySize": 2
+  },
+  {
+    "CustomerId": 2,
+    "RestaurantId": 2,
+    "ReservationDate": "2025-05-01T19:00:00",
+    "PartySize": 4
+  },
+  {
+    "CustomerId": 3,
+    "RestaurantId": 3,
+    "ReservationDate": "2025-05-02T20:00:00",
+    "PartySize": 3
+  },
+  {
+    "CustomerId": 4,
+    "RestaurantId": 4,
+    "ReservationDate": "2025-05-03T21:00:00",
+    "PartySize": 6
+  },
+  {
+    "CustomerId": 5,
+    "RestaurantId": 5,
+    "ReservationDate": "2025-05-04T17:30:00",
+    "PartySize": 1
+  }
+]
